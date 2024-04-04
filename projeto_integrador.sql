@@ -41,5 +41,13 @@ CREATE TABLE [blog] (
 )
 GO
 
+  CREATE TABLE [patrocinadores] (
+  [id_patrocinador] int PRIMARY KEY IDENTITY (1, 1),
+  [foto] image NOT NULL
+)
+GO
+
 ALTER TABLE [cadastro_animal] ADD FOREIGN KEY ([filtros_id_filtro]) REFERENCES [filtros] ([id_filtro])
 GO
+
+
