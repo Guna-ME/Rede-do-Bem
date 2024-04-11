@@ -9,6 +9,7 @@ CREATE TABLE `cadastro_animal` (
   `foto2` image NOT NULL,
   `foto3` image NOT NULL,
   `foto4` image NOT NULL,
+  `foto5` image NOT NULL,
   `historia` text NOT NULL,
   `status_animal` varchar(50) NOT NULL
 );
@@ -24,13 +25,26 @@ CREATE TABLE `blog` (
   `foto1` image NOT NULL,
   `foto2` image NOT NULL,
   `foto3` image NOT NULL,
+  `foto4` image NOT NULL,
   `titulo` varchar(50) NOT NULL,
-  `texto` text NOT NULL,
-  `tipo_conteudo` text NOT NULL
+  `texto` text NOT NULL
 );
 
-CREATE TABLE `patrocinadores` (
-  `id_patrocinador` int PRIMARY KEY AUTO_INCREMENT,
-  `foto` image NOT NULL,
-  `status_patrocinador` varchar(50) NOT NULL
+CREATE TABLE `sobre` (
+  `id_sobre` int PRIMARY KEY AUTO_INCREMENT,
+  `texto_sobre` text NOT NULL,
+  `foto_patrocinador` image NOT NULL
+);
+
+CREATE TABLE `ajuda` (
+  `id_ajuda` int PRIMARY KEY AUTO_INCREMENT,
+  `texto_principal` text NOT NULL,
+  `titulo1` text NOT NULL,
+  `ajuda1` text NOT NULL,
+  `titulo2` text NOT NULL,
+  `ajuda2` text NOT NULL,
+  `titulo3` text NOT NULL,
+  `ajuda3` text NOT NULL,
+  `titulo4` text NOT NULL,
+  `ajuda4` text NOT NULL
 );
