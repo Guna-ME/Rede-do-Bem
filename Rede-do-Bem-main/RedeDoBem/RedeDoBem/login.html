@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedeDoBem</title>
+
+    <style>
+        body{
+            background-color: #FA9D5A;
+        }
+
+        #Login img{
+            max-width: 200px;
+        }
+
+        #Login{
+            font-family: sans-serif;
+            background-color: #FFFFFF80;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 80px;
+            border-radius: 15px;
+            
+        }
+
+        #Login input.login{
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 17px;
+            padding-left: 10%;
+            background-image: url(avatar.png);
+            background-repeat: no-repeat;
+            background-size: 20px;
+            background-position: 5px;
+            position: absolute;
+            top: 67%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        #Login input.password{
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 17px;
+            padding-left: 10%;
+            background-image: url(chave.png);
+            background-repeat: no-repeat;
+            background-size: 700px;
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        #Login .button{
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 5px;
+            border: none;
+            border-radius: 10px;
+            background-color: #FA9D5A;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="Login">
+            <img src="rededobem.png" sizes="50">
+            <br><br>
+            <h3>Login</h3>
+            <br><br>
+            <input class="login" type="text" placeholder="Login">
+            <br><br>
+            <input class="password" type="password" placeholder="Senha">
+            <br><br>
+            <input class="button" type="submit" onclick="Entrar('valor')" value="Entrar">
+    </div>
+</body>
+</html>

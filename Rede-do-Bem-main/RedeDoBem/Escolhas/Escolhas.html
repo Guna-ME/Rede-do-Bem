@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Escolhas" content="width=device-width, initial-scale=1.0">
+    <title>Escolhas</title>
+
+    <style>
+
+        body{
+            background-color: #FA9D5A;
+            margin: 0;
+        }
+
+        #container{
+            background-color: #FFFFFF80;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 80px;
+            border-radius: 15px;
+            height: 400px;
+            width: 400px;
+        }
+
+        h1{
+
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 10px;
+            border-radius: 100px;
+            height: 20px;
+            font-size: 20px;
+        }
+
+        .button{
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 50px;
+            border-radius: 100px;
+            height: 300px;
+            font-size: 50px;
+        }
+        
+        .carac{
+            border-radius: 100px;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            
+        }
+
+        .carac:hover {
+            opacity: .8;
+        }
+
+        table{
+            border-spacing: 20px 5px;
+            
+        }
+        tr>tr{
+            padding: 10px
+        }
+         th>th{
+            padding: 10px;
+         }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>O que você gostaria de fazer?</h1>  
+            <div class="button">
+                <table>
+                    <tr>
+                      <th><input type="submit" class="carac" value="Postar Animalzinho"></th>
+                      <th><input type="submit" class="carac" value="Animalzinhos Adotados"></th>
+                    </tr>
+                    <tr>
+                      <td><input type="submit" class="carac" value="Editar Sobre Nós"></td>
+                      <td><input type="submit" class="carac" value="Postar no Blog"></td>                      
+                    </tr>
+                    <tr>
+                      <td><input type="submit" class="carac" value="Alterar Postagens"></td>
+                      <td><input type="submit" class="carac" value="Editar Ajude-me"></td>                      
+                    </tr>
+                  </table>
+            </div>
+    </div>
+</body>
+</html>
