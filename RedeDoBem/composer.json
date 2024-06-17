@@ -1,0 +1,27 @@
+{
+    "name": "rededobem/projeto_integrador",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "ProjetoIntegrador\\": "src/"
+        },
+        "files": [
+            "config/loader.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Maria Eduarda",
+            "email": "dudamarcos151@hotmail.com"
+        }, 
+        {
+            "name": "Suyane",
+            "email": "lilica.suy@gmail.com"
+        },
+        {
+            "name": "Gabriel",
+            "email": "macieskig3@gmail.com"
+        }
+    ],
+    "require": {}
+}
