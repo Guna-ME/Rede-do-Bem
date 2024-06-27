@@ -86,25 +86,31 @@ $resultIdades = DB->query($sqlIdades);
         $foto_count = 0;
         foreach ($animais as $animal): 
             if ($foto_count % 3 == 0) {
+                if ($foto_count != 0) {
+                    echo '</div>'; // Fecha a div anterior antes de abrir uma nova
+                }
                 echo '<div class="foto-geraladotar">';
             }
         ?>
             <div class="fotoadotar">
-                <a class="animalClicado" href="<?php echo BASE_URL; ?>index.php?q=animal&id=<?php echo $animal['id_cadastro']; ?>" img src="assets/images/<?php echo $foto; ?>" alt="Foto"></a>
+                <img src="assets/images/<?php echo $animal['foto1']; ?>" alt="Foto do Animal">
             </div>
         <?php 
             $foto_count++;
-            if ($foto_count % 3 == 0) {
-                echo '</div>';
-            }
         endforeach; 
         if ($foto_count % 3 != 0) {
             echo '</div>'; 
         }
-        ?>
-    </div>
+    ?>
+</div>
+
     <div id="container4">
-        <div class="rodape"></div>
-    </div>
+                <div class="rodape">
+                    <h1 class="h1rodape">CONTATOS</h1>
+                    <h2 class="h2rodape">Instagram: @rede_do_bem_cocal_do_sul</h2>
+                    <H2 class="h2rodape">WhatsApp: +55 (48) 99999-9999 </H2>
+                </div>
+            </div>
+        </div>
 </body>
 </html>

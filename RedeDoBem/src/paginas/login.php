@@ -17,7 +17,7 @@ if (mysqli_num_rows($verifica)<=0)
       {
         echo"<script language='javascript' type='text/javascript'>
         alert('Login e/ou senha incorretos');
-        window.location.href='login.htm';</script>";
+        window.location.href='login.html';</script>";
         die();
       }
 else
@@ -34,7 +34,7 @@ else
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedeDoBem</title>
+    <title>Login</title>
     <link rel="stylesheet" href="./css/style.css">
 
 </head>

@@ -8,7 +8,9 @@ if (!function_exists('connectDB')) {
                 throw new \DomainException("Erro de conexão com a base de dados - {$mysql->connect_error}");
             }
         
-            define('DB', $mysql);
+            if (!defined('DB')) {
+                define('DB', $mysql);
+            }
         } catch (Throwable $th) {
             echo $th->getMessage();
             die();

@@ -55,7 +55,12 @@ if ($result->num_rows > 0) {
         </div>
     </div>
     <div id="container4">
-        <div class="rodape"></div>
-    </div>
+                <div class="rodape">
+                    <h1 class="h1rodape">CONTATOS</h1>
+                    <h2 class="h2rodape">Instagram: @rede_do_bem_cocal_do_sul</h2>
+                    <H2 class="h2rodape">WhatsApp: +55 (48) 99999-9999 </H2>
+                </div>
+            </div>
+        </div>
 </body>
 </html>

@@ -48,6 +48,13 @@ img {
     margin-left: 40px;
 }
 
+/*#inputorg{
+    background-image: url(ossoblog.png);
+    padding-left: 30px;
+    border-radius: 25px;
+}*/
+
+
 .org {
     align-items: center;
     font-size: 20px;
@@ -79,6 +86,25 @@ img {
     height: 400px;
     background-color: #FA9D5A;
 }
+
+
+.rodape{
+    align-items: center;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.h1rodape{
+    padding-top: 120px;
+    color: #FCF7F7;
+}
+
+.h2rodape{
+    color: #FCF7F7;
+}
+
+
 
 /*não mexer acima*/
 
@@ -115,9 +141,22 @@ img {
     width: 350px;
     border-radius: 15px;
     margin-top: 1px;
-    display: inline-block;
+    display: flex; /* Usa flexbox para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
     margin-left: 13px;
+    overflow: hidden; /* Garante que o conteúdo excedente seja cortado */
 }
+
+.fotoadotar img {
+    width: 100%; /* Garante que a imagem preencha a largura da div */
+    height: 100%; /* Garante que a imagem preencha a altura da div */
+    object-fit: cover; /* Faz com que a imagem preencha a div sem distorção */
+    border-radius: 15px; /* Mantém os cantos arredondados */
+    margin-left: 0;
+}
+
+
 
 .veradotar {
     margin-top: 20px; 
@@ -141,11 +180,11 @@ img {
     justify-content: space-between; /* Alinha os elementos nos cantos */
     align-items: center; /* Centraliza verticalmente */
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-left: 370px;
     height: 300px;
     width: 320px;
-    padding: 10px;
+    padding: 30px;
     padding-left: 0;
     padding-right: 0;
     background-color: transparent;
@@ -156,50 +195,45 @@ img {
     justify-content: space-between; /* Alinha os elementos nos cantos */
     align-items: center; /* Centraliza verticalmente */
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-left: 125px;
     height: 300px;
     width: 320px;
-    padding: 10px;
+    padding: 30px;
     padding-left: 0;
     padding-right: 0;
     background-color: transparent;
 } 
 
 #tipoadotar {
-    height: 100px;
+    height: 50px;
     width: 200px;
-    border-radius: 15px;
     padding-left: 65px;
-    border: none;
     font-size: 30px;
-    border-radius: 20px;
+    border-radius: 25px;
 }
 
 #generoadotar {
-    height: 100px;
+    height: 50px;
     width: 200px;
-    border-radius: 15px;
+    border-radius: 25px;
     padding-left: 48px;
-    border: none;
     font-size: 30px;
 }
 
 #porteadotar {
-    height: 100px;
+    height: 50px;
     width: 200px;
-    border-radius: 15px;
+    border-radius: 25px;
     padding-left: 65px;
-    border: none;
     font-size: 30px;
 }
 
 #idadeadotar {
-    height: 100px;
+    height: 50px;
     width: 200px;
-    border-radius: 15px;
+    border-radius: 25px;
     padding-left: 60px;
-    border: none;
     font-size: 30px;
 }
 
@@ -274,7 +308,7 @@ img {
     justify-content: space-between; /* Alinha os elementos nos cantos */
     align-items: center; /* Centraliza verticalmente */
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-left: 370px;
     height: 300px;
     width: 320px;
@@ -289,7 +323,7 @@ img {
     justify-content: space-between; /* Alinha os elementos nos cantos */
     align-items: center; /* Centraliza verticalmente */
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-left: 125px;
     height: 300px;
     width: 320px;
@@ -300,36 +334,34 @@ img {
 } 
 
 #tipoanimal {
-    height: 100px;
+    height: 50px;
     width: 200px;
-    border-radius: 15px;
+    border-radius: 25px;
     padding-left: 65px;
-    border: none;
     font-size: 30px;
 }
 
+
 #generoanimal {
-    height: 100px;
+    height: 50px;
     width: 200px;
-    border-radius: 15px;
+    border-radius: 25px;
     padding-left: 48px;
-    border: none;
     font-size: 30px;
 }
 
 #porteanimal {
-    height: 100px;
+    height: 500px;
     width: 200px;
     border-radius: 15px;
     padding-left: 65px;
-    border: none;
     font-size: 30px;
 }
 
 #idadeanimal {
-    height: 100px;
+    height: 50px;
     width: 200px;
-    border-radius: 15px;
+    border-radius: 25px;
     padding-left: 60px;
     border: none;
     font-size: 30px;
@@ -445,7 +477,7 @@ img {
 
 .umblog, .doisblog, .tresblog, .quatroblog {
     display: inline-block;
-    background-color: #D9D9D9;
+    background-color: #FCF7F7;
     height: 40px;
     width: 40px;
     margin-top: 5px;
@@ -1093,6 +1125,12 @@ input[type="text"]:focus, textarea:focus {
 
 .loginLogin {
     margin-bottom: 10px;
+    border-radius: 25px;
+}
+
+.loginLogin [type =text]{
+   font-size: 20px;
+   border-radius: 18px;
 }
 
 #loginLogin{
