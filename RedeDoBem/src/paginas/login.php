@@ -1,52 +1,32 @@
 <?php
 
-require_once "config/DB.php";
+$sql = "SELECT * FROM login";
+$result = DB->query($sql);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $login = $_POST['login'];
-    $senha = $_POST['senha'];
+if(isset($_POST['entrar']))
+{
+$login = $_POST['login'];
+$senha = md5($_POST['senha']);
+$entrar = $_POST['entrar'];
 
-    $sql = "SELECT * FROM login WHERE login = ?";
-    $stmt = $DB->prepare($sql);
-    
-    // Verifica se a preparação da consulta falhou
-    if (!$stmt) {
-        echo "Erro na preparação da consulta: " . $DB->error;
-        exit;
-    }
-
-    // Liga o parâmetro de login à consulta preparada
-    $stmt->bind_param("s", $login);
-    
-    // Executa a consulta
-    $stmt->execute();
-
-    // Obtém o resultado da consulta
-    $result = $stmt->get_result();
-
-    // Verifica se o usuário foi encontrado
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        // Verifica se a senha digitada corresponde à senha no banco de dados
-        if (password_verify($senha, $row['senha'])) {
-            // Inicia a sessão
-            session_start();
+$verifica = mysqli_query("SELECT login, senha FROM login
+                         WHERE login = '$login' AND senha = '$senha'")
+            or die("erro ao selecionar");
             
-            // Armazenar informações do usuário na sessão
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['user_name'] = $row['nome'];
-            
-            // Redirecionar para a página de dashboard
-            header("Location: menu.php");
-            exit;
-        } else {
-            // Senha incorreta
-            echo "Login ou senha incorretos.";
-            exit;
-        }
-    }
+if (mysqli_num_rows($verifica)<=0)
+      {
+        echo"<script language='javascript' type='text/javascript'>
+        alert('Login e/ou senha incorretos');
+        window.location.href='login.htm';</script>";
+        die();
+      }
+else
+      {
+        setcookie("login",$login);
+        header("Location:menu.php");
+      }
+  
 }
-
 ?>
 
 <!DOCTYPE html>
