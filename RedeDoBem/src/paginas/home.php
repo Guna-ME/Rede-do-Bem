@@ -1,11 +1,7 @@
 <?php
 
-include 'C:\xampp\htdocs\RedeDoBem\config\DB.php';
-
-$conn = DB;
-
 $sql = "SELECT foto1 FROM cadastro_animal ORDER BY id_cadastro DESC LIMIT 3";
-$result = $conn->query($sql);
+$result = DB->query($sql);
 
 $fotos = array();
 
@@ -32,7 +28,8 @@ if ($result->num_rows > 0) {
     <div id="container">
         <div class="cabecario">
             <div class="img-container">
-                <img src="logo.png" alt="logo">
+            <a href="<?php echo BASE_URL; ?>home">
+            <img src="assets/images/logo.png" alt="logo"></a>
             </div>
             <div class="org-container">
                 <input type="button" value="Blog" onclick="window.location.href='<?php echo BASE_URL; ?>Blog'" class="org">
@@ -48,11 +45,11 @@ if ($result->num_rows > 0) {
     <div id="container2home">
         <div class="foto-geralhome">
             <?php foreach ($fotos as $foto): ?>
-                <div class="fotohome" style="background-image: url('path_to_images/<?php echo $foto; ?>');"></div>
+                <div class="fotohome" style="background-image: url('assets/images/<?php echo $foto; ?>');"></div>
             <?php endforeach; ?>
         </div>
         <div class="verhome">
-            <input type="submit" value="ver mais" onclick="window.location.href='<?php echo BASE_URL; ?>Animal'" class="vmhome">
+            <input type="submit" value="ver mais" onclick="window.location.href='<?php echo BASE_URL; ?>Adotar'" class="vmhome">
         </div>
     </div>
     <div id="container4">

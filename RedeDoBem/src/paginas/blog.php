@@ -1,3 +1,10 @@
+<?php
+
+$sql = "SELECT id_blog, foto1, foto2, foto3, foto4, titulo, texto FROM blog ORDER BY id_blog DESC";
+$result = DB->query($sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,7 +19,8 @@
         <div class="cabecario">
             <div class="cabecario">
                 <div class="img-container">
-                    <img src="rededobem.png" alt="logo">
+                <a href="<?php echo BASE_URL; ?>home">
+                <img src="assets/images/logo.png" alt="logo"></a>
                 </div>
                 <div class="org-container">
                 <input type="button" value="Blog" onclick="window.location.href='<?php echo BASE_URL; ?>Blog'" class="org">
@@ -26,36 +34,41 @@
             <div class="textoblog">Todas as novidades você<br>encontra aqui!</div>
         </div>
     </div>
-    <div id="container2blog">
-        <div class="foto-geralblog">
-            <div class="fotoblog"></div>
-            <div class="geralblog">
-                <div class="umblog"></div>
-                <div class="doisblog"></div>
-                <div class="tresblog"></div>
-                <div class="quatroblog"></div>
+    <?php
+         if ($result->num_rows > 0):
+            while($row = $result->fetch_assoc()):
+                $foto1 = ($row["foto1"]);
+                $foto2 = ($row["foto2"]);
+                $foto3 = ($row["foto3"]);
+                $foto4 = ($row["foto4"]);
+            ?>
+            <div id="container2blog">
+                <div class="foto-geralblog">
+                    <div class="fotoblog">
+                        <img src="assets/images/<?php echo $foto1; ?>" alt="Foto 1">
+                    </div>
+                    <div class="geralblog">
+                        <div class="umblog">
+                            <img src="assets/images/<?php echo $foto2; ?>" alt="Foto 2">
+                        </div>
+                        <div class="doisblog">
+                            <img src="assets/images/<?php echo $foto3; ?>" alt="Foto 3">
+                        </div>
+                        <div class="tresblog">
+                            <img src="assets/images/<?php echo $foto4; ?>" alt="Foto 4">
+                        </div>
+                    </div>
+                </div>
+                <div class="descricaoblog">
+                    <h1><?php echo $row["titulo"]; ?></h1>
+                    <p><?php echo $row["texto"]; ?></p>
+                </div>
             </div>
-        </div>
-        <div class="descricaoblog">
-            <h1>Feirinha de Adoação</h1>
-            <p>Se prepare para morrer de amores. Feirinha de animais na praça da igreja dia 23/05 com muita fofura e alegria. Venha participar e aproveite para contribuir com nossa causa. Esperamos por você</p>
-        </div>
-    </div>
-    <div id="container3blog">
-        <div class="foto-geralblog">
-            <div class="fotoblog"></div>
-            <div class="geralblog">
-                <div class="umblog"></div>
-                <div class="doisblog"></div>
-                <div class="tresblog"></div>
-                <div class="quatroblog"></div>
-            </div>
-        </div>
-        <div class="descricaoblog">
-            <h1>Feirinha de Adoação</h1>
-            <p>Se prepare para morrer de amores. Feirinha de animais na praça da igreja dia 23/05 com muita fofura e alegria. Venha participar e aproveite para contribuir com nossa causa. Esperamos por você</p>
-        </div>
-    </div>
+        <?php endwhile; ?>
+    <?php else: ?>
+        <p>Nenhum resultado encontrado</p>
+    <?php endif; ?>
+
     <div id="container4">
         <div class="rodape"></div>
     </div>

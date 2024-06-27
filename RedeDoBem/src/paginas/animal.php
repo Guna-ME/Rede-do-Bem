@@ -1,3 +1,26 @@
+<?php
+
+if (isset($_GET['id'])) {
+    $id = intval($_GET['id']);
+    $sql = "SELECT tipo, genero, porte, idade, foto1, nome, historia FROM cadastro_animal WHERE id_cadastro = ?";
+    $stmt = DB->prepare($sql);
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $animal = $result->fetch_assoc();
+    } else {
+        echo "Animal não encontrado.";
+        exit;
+    }
+} else {
+    echo "ID do animal não fornecido.";
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +34,8 @@
         <div class="cabecario">
             <div class="cabecario">
                 <div class="img-container">
-                    <img src="rededobem.png" alt="logo">
+                <a href="<?php echo BASE_URL; ?>home">
+                <img src="assets/images/logo.png" alt="logo"></a>
                 </div>
                 <div class="org-container">
                 <input type="button" value="Blog" onclick="window.location.href='<?php echo BASE_URL; ?>Blog'" class="org">
@@ -31,7 +55,7 @@
                 <select id="generoanimal">
                     <option value="" selected disabled>Gênero</option>
                     <option value="macho">macho</option>
-                    <option value="femea">Femêa</option>
+                    <option value="femea">Fêmea</option>
                 </select>
             </div>
             <div class="opcao2animal">
@@ -49,19 +73,18 @@
         </div>
         <div id="container3animal">
             <div class="foto-geralanimal">
-                <div class="fotoanimal"></div>
+                <div class="fotoanimal" style="background-image: url('data:image/jpeg;base64,<?php echo base64_encode($animal["foto1"]); ?>');"></div>
                 <div class="geralanimal">
-                    <div class="umanimal"></div>
-                    <div class="doisanimal"></div>
-                    <div class="tresanimal"></div>
-                    <div class="quatroanimal"></div>
+                    <div class="umanimal"><strong>Tipo:</strong> <?php echo $animal['tipo']; ?></div>
+                    <div class="doisanimal"><strong>Gênero:</strong> <?php echo $animal['genero']; ?></div>
+                    <div class="tresanimal"><strong>Porte:</strong> <?php echo $animal['porte']; ?></div>
+                    <div class="quatroanimal"><strong>Idade:</strong> <?php echo $animal['idade']; ?></div>
                 </div>
             </div>
-            <div class="descricaoanimal">
-                <div class="nomeanimal"><h1>Amora</h1></div>
-                <div class="animalanimal"><h4>Cachorro - Femêa - Médio Porte - Filhote</h4></div>
-                <p>Amora é uma cachorrinha adorável, que foi encontrada perto de um lixão. 
-                Ela foi encontrada com ferimentos e levada ao veterinário e está em busca de um novo lar.</p>
+            <div class="historiaanimal">
+                <div class="nomeanimal"><h1><?php echo $animal['nome']; ?></h1></div>
+                <div class="animalanimal"><h4><?php echo $animal['tipo']; ?> - <?php echo $animal['genero']; ?> - <?php echo $animal['porte']; ?> - <?php echo $animal['idade']; ?></h4></div>
+                <p><?php echo $animal['historia']; ?></p>
                 <input type="submit" value="CONTATO" class="contatoanimal">
             </div>
         </div>

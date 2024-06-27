@@ -1,3 +1,10 @@
+<?php
+
+$sql = "SELECT texto_sobre, foto_patrocinador FROM sobre";
+$result = DB->query($sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +18,8 @@
         <div class="cabecario">
             <div class="cabecario">
                 <div class="img-container">
-                    <img src="rededobem.png" alt="logo">
+                <a href="<?php echo BASE_URL; ?>home">
+                <img src="assets/images/logo.png" alt="logo"></a>
                 </div>
                 <div class="org-container">
                 <input type="button" value="Blog" onclick="window.location.href='<?php echo BASE_URL; ?>Blog'" class="org">
@@ -27,31 +35,43 @@
                 <h4>Faça parte da nossa família</h4>
             </div>
         </div>
-        <div id="container 2sobre">
-            <div class="redesobre">
-                <p>Com uma equipe apaixonada e dedicada, a ONG Rede do Bem busca promover o <br>
-                   bem-estar e a proteção dos animais desamparados em Cocal do Sul e regiões <br>
-                   próximas. Nosso compromisso é oferecer cuidado, abrigo e assistência médica<br>
-                   para animais abandonados, feridos ou em situação de risco, além de promover a<br>
-                   conscientização sobre a importância da posse responsável e do respeito aos<br>
-                   direitos dos animais.<br>
-                   Por meio de programas de resgate, adoção responsável, castração e campanhas<br>
-                   educativas, trabalhamos incansavelmente para combater o abandono e o sofrimento<br> 
-                   animal. Nossa missão é proporcionar uma vida digna e feliz para cada ser vivo<br> 
-                   sob nossa proteção, garantindo-lhes amor, cuidado e uma segunda chance de<br> 
-                   encontrar um lar amoroso.<br> 
-                   Junte-se a nós nessa causa nobre! Seja um voluntário, faça uma doação ou adote<br> 
-                   um de nossos queridos animais. Juntos, podemos fazer a diferença e construir um<br> 
-                   mundo melhor para todos os seres vivos."</p>
-            </div>
-            <div class="patrociniosobre">
-                <h1>SEJA UM DOS NOSSOS <br>PATROCINADORES</h1>
-                <div class="foto-geralsobre">
-                    <div class="fotosobre"></div>
-                    <div class="fotosobre"></div>
-                    <div class="fotosobre"></div>
-                </div>
-            </div>
+
+        <?php
+
+        if ($result->num_rows > 0) {
+            // Exibir dados
+            while($row = $result->fetch_assoc()) {
+                echo "<div id='container 2sobre'>
+                        <div class='redesobre'>
+                            <p>" . nl2br($row["texto_sobre"]) . "</p>
+                        </div>
+                        <div class='patrociniosobre'>
+                            <h1>SEJA UM DOS NOSSOS <br>PATROCINADORES</h1>
+                            <div class='foto-geralsobre'>";
+               
+                $fotos = explode(',', $row["foto_patrocinador"]);
+                foreach ($fotos as $foto) {
+                    echo "<div class='fotosobre'><img src='assets/images/$foto' alt='Patrocinador'></div>";
+                }
+                echo "        </div>
+                        </div>";
+            }
+        } else {
+            echo "<div id='container 2sobre'>
+                    <div class='redesobre'>
+                        <p>Nenhum conteúdo disponível.</p>
+                    </div>
+                    <div class='patrociniosobre'>
+                        <h1>SEJA UM DOS NOSSOS <br>PATROCINADORES</h1>
+                        <div class='foto-geralsobre'>
+                            <div class='fotosobre'>Nenhuma foto disponível</div>
+                        </div>
+                    </div>
+                  </div>";
+        }
+
+        ?>
+
             <div id="container4">
                 <div class="rodape"></div>
             </div>

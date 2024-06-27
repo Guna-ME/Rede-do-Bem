@@ -32,6 +32,7 @@ if (!function_exists('router')) {
         if (!file_exists("src/paginas/{$pagina}")) {
             return "/paginas/404.php";
         }
+
     
         return "/paginas/$pagina";
     }

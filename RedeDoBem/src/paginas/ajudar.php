@@ -1,3 +1,17 @@
+<?php
+
+$sql = "SELECT id_ajuda, texto_principal, titulo1, ajuda1, titulo2, ajuda2, titulo3, ajuda3, titulo4, ajuda4 FROM ajuda";
+$result = DB->query($sql);
+
+if ($result->num_rows > 0) {
+    // Buscar dados
+    $row = $result->fetch_assoc();
+} else {
+    echo "Nenhum dado encontrado.";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +25,8 @@
         <div class="cabecario">
             <div class="cabecario">
                 <div class="img-container">
-                    <img src="rededobem.png" alt="logo">
+                <a href="<?php echo BASE_URL; ?>home">
+                <img src="assets/images/logo.png" alt="logo"></a>
                 </div>
                 <div class="org-container">
                 <input type="button" value="Blog" onclick="window.location.href='<?php echo BASE_URL; ?>Blog'" class="org">
@@ -28,22 +43,19 @@
             </div>
         </div>
         <div id="container 2ajuda">
-            <div class="redeajuda">
-                <p>Na Rede do Bem, a transparência e a responsabilidade são nossos pilares.<br> Comprometemo-nos a utilizar cada recurso doado de forma ética e eficiente, <br> garantindo que ele seja direcionado diretamente para onde é mais necessário: 
-                    o bem-estar dos animais que resgatamos. <br> Juntos Podemos Fazer a Diferença: Seja parte desta jornada de compaixão e<br>  esperança. 
-                    Junte-se a nós na missão de proteger e cuidar dos nossos amigos de <br> quatro patas. Com sua ajuda, 
-                    podemos transformar a vida de muitos cães e <br> inspirar outros a fazerem o mesmo.</p>
+        <div class="redeajuda">
+                <p><?php echo nl2br($row["texto_principal"]); ?></p>
             </div>
             <div class="ajudarajuda">
                 <h1>Como Posso Ajudar</h1>
-                <h2>Pix</h2>
-                <p>42.586.596/0001-96</p>
-                <h2>TED ou depósito em conta</h2>
-                <p>Banco do Brasil <br>Agência: 3118-6 <br>Conta-corrente: 42305-x</p>
-                <h2>Vakinha</h2>
-                <p>Nossa vakinha aqui</p>
-                <h2>Seja um patrocinador</h2>
-                <p>Seja um dos nossos patrocinadores e impacte positivamente na vida de animaizinhos</p>
+                <h2><?php echo $row["titulo1"]; ?></h2>
+                <p><?php echo nl2br($row["ajuda1"]); ?></p>
+                <h2><?php echo $row["titulo2"]; ?></h2>
+                <p><?php echo nl2br($row["ajuda2"]); ?></p>
+                <h2><?php echo $row["titulo3"]; ?></h2>
+                <p><?php echo nl2br($row["ajuda3"]); ?></p>
+                <h2><?php echo $row["titulo4"]; ?></h2>
+                <p><?php echo nl2br($row["ajuda4"]); ?></p>
             </div>
         </div>
         <div id="container4">
