@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2css">
     <script src="https://kit.fontawesome.com/98d028094a.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body id="body1">
     <div id="containerBlog"> 
         <div id="container2Blog">
             <div class="fotosBlog">

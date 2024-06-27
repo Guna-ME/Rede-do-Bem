@@ -1,3 +1,32 @@
+<?php
+
+$texto_sobre_nos = '';
+
+$sql_sobre_nos = "SELECT sobre FROM sobre_nos WHERE id_sobre = 1"; 
+
+$result_sobre_nos = $DB->query($sql_sobre_nos);
+
+if ($result_sobre_nos && $result_sobre_nos->num_rows > 0) {
+    $row_sobre_nos = $result_sobre_nos->fetch_assoc();
+    $texto_sobre_nos = $row_sobre_nos['texto_sobre'];
+} else {
+    echo "Erro ao recuperar os dados do 'Sobre nós'";
+}
+
+$sql_patrocinadores = "SELECT foto_patrocinador FROM foto_patrocinador";
+$result_patrocinadores = $DB->query($sql_patrocinadores);
+
+$patrocinadores = [];
+if ($result_patrocinadores && $result_patrocinadores->num_rows > 0) {
+    while ($row_patrocinadores = $result_patrocinadores->fetch_assoc()) {
+        $patrocinadores[] = $row_patrocinadores['foto_patrocinador'];
+    }
+} else {
+    echo "Erro ao recuperar os dados dos patrocinadores";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

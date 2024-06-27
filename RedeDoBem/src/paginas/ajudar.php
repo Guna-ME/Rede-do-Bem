@@ -1,5 +1,7 @@
 <?php
 
+require_once 'config/DB.php';
+
 $sql = "SELECT id_ajuda, texto_principal, titulo1, ajuda1, titulo2, ajuda2, titulo3, ajuda3, titulo4, ajuda4 FROM ajuda";
 $result = DB->query($sql);
 

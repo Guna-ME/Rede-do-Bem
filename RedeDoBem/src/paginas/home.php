@@ -43,10 +43,12 @@ if ($result->num_rows > 0) {
         </div>
     </div>
     <div id="container2home">
-        <div class="foto-geralhome">
-            <?php foreach ($fotos as $foto): ?>
-                <div class="fotohome" style="background-image: url('assets/images/<?php echo $foto; ?>');"></div>
-            <?php endforeach; ?>
+    <div class="foto-geralhome">
+        <?php foreach ($fotos as $foto): ?>
+            <div class="fotohome">
+                <img src="assets/images/<?php echo $foto; ?>" alt="Foto">
+            </div>
+        <?php endforeach; ?>
         </div>
         <div class="verhome">
             <input type="submit" value="ver mais" onclick="window.location.href='<?php echo BASE_URL; ?>Adotar'" class="vmhome">

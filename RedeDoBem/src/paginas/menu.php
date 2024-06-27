@@ -7,9 +7,9 @@
     <title>Seleção</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="body1">
     <div id="containerOpcoes">
-        <img class="imgOpcoes" src="rededobem.png" alt="Logo">
+        <img class="imgOpcoes" img src="assets/images/logo.png" alt="logo">
         <h1 class="h1Opcoes">O que gostaria de fazer?</h1>
         <br>
         <div class="gridOpcoes">

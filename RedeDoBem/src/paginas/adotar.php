@@ -90,7 +90,7 @@ $resultIdades = DB->query($sqlIdades);
             }
         ?>
             <div class="fotoadotar">
-                <a class="animalClicado" href="<?php echo BASE_URL; ?>index.php?q=animal&id=<?php echo $animal['id_cadastro']; ?>" style="background-image: url('data:image/jpeg;base64,<?php echo base64_encode($animal["foto1"]); ?>'); display: block; width: 100%; height: 100%; background-size: cover; background-position: center;"></a>
+                <a class="animalClicado" href="<?php echo BASE_URL; ?>index.php?q=animal&id=<?php echo $animal['id_cadastro']; ?>" img src="assets/images/<?php echo $foto; ?>" alt="Foto"></a>
             </div>
         <?php 
             $foto_count++;
@@ -99,7 +99,7 @@ $resultIdades = DB->query($sqlIdades);
             }
         endforeach; 
         if ($foto_count % 3 != 0) {
-            echo '</div>'; // Close the last div if it wasn't closed
+            echo '</div>'; 
         }
         ?>
     </div>

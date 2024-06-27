@@ -27,6 +27,14 @@ if (!function_exists('router')) {
         if (empty(trim($pagina))) {
             return "/paginas/sobre.php";
         }
+
+        if (empty(trim($pagina))) {
+            return "/paginas/login.php";
+        }
+
+        if (empty(trim($pagina))) {
+            return "/paginas/menu.php";
+        }
     
         $pagina .= ".php";
         if (!file_exists("src/paginas/{$pagina}")) {
